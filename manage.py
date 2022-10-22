@@ -1,7 +1,7 @@
 from flask.cli import FlaskGroup
 
 
-from project import app, db
+from project import app, db, redis_client
 
 cli = FlaskGroup(app)
 
@@ -15,6 +15,12 @@ def create_db():
     db.drop_all()
     db.create_all()
     db.session.commit()
+
+
+@cli.command("check_redis")
+def check_redis():
+    redis_client.set('photo', 'ph')
+    assert redis_client.get('photo') == 'ph'
 
 
 if __name__ == '__main__':

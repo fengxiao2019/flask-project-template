@@ -1,0 +1,14 @@
+{
+    "editor.accessibilityPageSize": 11,
+    "python.envFile": "${workspaceFolder}/.vscode/.env",
+    "terminal.integrated.env.windows": {
+        "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}"
+    },
+    "python.autoComplete.extraPaths": [
+        "./tools", "./project"
+    ],
+    // "console": "integratedTerminal",
+    "python.analysis.extraPaths": [
+        "./tools"
+    ]
+}

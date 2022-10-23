@@ -6,8 +6,6 @@ import re
 import time
 import traceback
 import logging
-import os
-print(os.getenv('PYTHONPATH'))
 from contextlib import ContextDecorator
 from pymysql.err import IntegrityError
 from tools.time_tool import get_current_time

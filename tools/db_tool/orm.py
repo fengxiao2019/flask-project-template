@@ -498,31 +498,6 @@ class DORM(BaseOrm):
     def join(self, table_name, table_alias="", join_type="", join_on="", col_str="",
              query_where_condition_dict=None,
              query_where_condition_or_list=None):
-        """
-        连表查询
-        :param table_name: 表名
-        :param table_alias: 别名
-        :param join_type: 枚举 left right inner outter
-        :param join_on: join条件，就是 ON 后面的 ON x.id=x.id
-        :param col_str: 要查询哪些列，例如查询bug的name和priority列就是  "bug.name, bug.priority as bug_priority"
-        :param query_where_condition_dict: where查询条件，格式如下：
-                {
-                    "id":1, "name__like": "王"
-                }
-        :param query_where_condition_or_list: where的or的查询条件，是个列表，每个列表是一个字典，字典里面是一组or的查询，
-                                                多个就是多个字段，举例如下：
-              [
-                {
-                    "name__in": ["王吉亮", "李亚超"],
-                    "org_id__in": [1, 2]
-                },
-                {
-                    "name__in": ["仲晓明", "许丽军"],
-                    "org_id__in": [4, 5]
-                },
-              ]
-        :return:
-        """
 
         if self.check_sql_is_select() is False:
             raise StandardError("只有调用了 query方法 后才可以使用 left_join")

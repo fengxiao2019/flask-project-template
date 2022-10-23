@@ -22,7 +22,7 @@ cur_flask_env_label = get_app_env()
 cur_flask_env = get_app_env_file_name()
 
 
-ans = load_dotenv(os.path.join(basedir, f".env/{cur_flask_env}"))
+ans = load_dotenv(os.path.join(basedir, f".env_dir/{cur_flask_env}"))
 
 
 class Config(object):

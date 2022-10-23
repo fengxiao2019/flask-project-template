@@ -10,3 +10,6 @@ class User(db.Model):
 
     def __init__(self, email):
         self.email = email
+    
+    def query(self):
+        User.query

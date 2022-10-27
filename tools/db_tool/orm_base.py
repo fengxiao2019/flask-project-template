@@ -8,7 +8,7 @@ import traceback
 import logging
 from contextlib import ContextDecorator
 from pymysql.err import IntegrityError
-from tools.time_tool import get_current_time
+from tools.time_tool import format_date_to_str,  get_current_time, format_datetime_to_str
 from tools.util import md5
 from tools.exception import StandardError
 from tools.util import JsonTool
@@ -247,14 +247,14 @@ class BaseOrm(object):
 
                     # 处理默认时间，如果类型是data或者datetime，进行处理
                     if isinstance(rowvalue, datetime.datetime):
-                        rowvalue_str = TimeTool.format_datetime_to_str(rowvalue)
+                        rowvalue_str = format_datetime_to_str(rowvalue)
                         if rowvalue_str == DEFAULT_TIME:
                             rowvalue = ""
                         else:
                             rowvalue = rowvalue_str
 
                     elif isinstance(rowvalue, datetime.date):
-                        rowvalue_str = TimeTool.format_date_to_str(rowvalue)
+                        rowvalue_str = format_date_to_str(rowvalue)
                         if rowvalue_str == DEFAULT_DATE:
                             rowvalue = ""
                         else:

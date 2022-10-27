@@ -15,10 +15,13 @@ db.select
 def hello_world():
     return jsonify(hello="world")
 
-
+URL_VERSION = 'v1'
 def json_response(code=ReturnDict.CODE_SUCCESS, msg='success', data={}):
     return ReturnDict(code=code, msg=msg, data=data).to_json()
 
+
+def error_response(code=ReturnDict.CODE_EXCEPTION, msg='failed', data={}):
+    return ReturnDict(code=code, msg=msg, data=data).to_json()
 
 def dict_response(code=ReturnDict.CODE_SUCCESS, msg='success', data={}):
     return ReturnDict(code=code, msg=msg, data=data).to_dict()

@@ -1,0 +1,14 @@
+# requirements
+
+-  frist : add moive to my list
+-  second : delete moive from my list
+- show all the moive from my list
+
+
+## provide the moive scheme store in db
+### schema 
+moive 
+    - id: 
+    - title
+    - add_time
+    - valid

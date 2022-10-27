@@ -1,15 +1,15 @@
-from project import db 
+from tools.db_tool.orm import DORM
 
+class User(object):
+    T_NAME = "users"
 
-class User(db.Model):
-    __tablename__ = "users"
+    @staticmethod
+    def query():
+        query_obj = DORM(User.T_NAME).query('id').where(id=12)
+        print(query_obj.str_sql)
+        query_ans = query_obj.execute()
+        for item in query_ans:
+            print(item)
 
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(128), unique=True, nullable=False)
-    active = db.Column(db.Boolean(), default=True, nullable=False)
-
-    def __init__(self, email):
-        self.email = email
-    
-    def query(self):
-        User.query
+if __name__ == '__main__':
+    User.query()

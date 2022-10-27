@@ -7,9 +7,9 @@ from tools.exception import ReturnDict
 app = Flask(__name__)
 app.config.from_object('config.CUR_CONFIG')
 
-db = SQLAlchemy(app) 
+db = SQLAlchemy(app)
 redis_client = FlaskRedis(app, decode_responses=True)
-
+db.select
 
 @app.route("/")
 def hello_world():

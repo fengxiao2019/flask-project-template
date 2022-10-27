@@ -21,6 +21,7 @@ def create_db():
 def check_redis():
     redis_client.set('photo', 'ph')
     assert redis_client.get('photo') == 'ph'
+    print('连接成功')
 
 
 if __name__ == '__main__':
